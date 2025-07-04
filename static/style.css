@@ -1,0 +1,290 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: linear-gradient(45deg, #000000, #1a1a1a);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: 
+        radial-gradient(circle at 25% 25%, #333333 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, #1a1a1a 0%, transparent 50%);
+    animation: backgroundShift 10s infinite alternate;
+}
+
+@keyframes backgroundShift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.container {
+    max-width: 800px;
+    width: 90%;
+    padding: 20px;
+}
+
+.profile-card {
+    background: #1a1a1a;
+    border: 4px solid #ffffff;
+    border-radius: 0;
+    box-shadow: 
+        0 0 20px rgba(255, 255, 255, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.avatar-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.avatar-frame {
+    width: 80px;
+    height: 80px;
+    border: 3px solid #ffffff;
+    position: relative;
+    background: #000000;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+}
+
+.name-section h1 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 0px #000000;
+}
+
+.status {
+    color: #cccccc;
+    font-size: 10px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.pixel-text {
+    font-family: 'Press Start 2P', cursive;
+    line-height: 1.6;
+    text-rendering: optimizeSpeed;
+}
+
+.tabs-container {
+    position: relative;
+    z-index: 1;
+}
+
+.tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    background: #000000;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    padding: 10px 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tab-button:hover {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.tab-button.active {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+.tab-content {
+    background: #000000;
+    border: 2px solid #ffffff;
+    padding: 20px;
+    min-height: 300px;
+}
+
+.tab-panel {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-panel h2 {
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 0px #000000;
+}
+
+.tab-panel p {
+    color: #cccccc;
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+
+.skill-bar {
+    margin-bottom: 15px;
+}
+
+.skill-bar span {
+    color: #ffffff;
+    font-size: 9px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.bar {
+    width: 100%;
+    height: 15px;
+    background: #000000;
+    border: 1px solid #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ffffff, #cccccc);
+    transition: width 1s ease-in-out;
+    position: relative;
+}
+
+.fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.project-item {
+    background: #000000;
+    border: 1px solid #ffffff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid #ffffff;
+}
+
+.project-item h3 {
+    color: #ffffff;
+    font-size: 11px;
+    margin-bottom: 8px;
+}
+
+.project-item p {
+    color: #cccccc;
+    font-size: 9px;
+}
+
+.discord-link {
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 1px solid #ffffff;
+    transition: all 0.3s ease;
+}
+
+.discord-link:hover {
+    color: #cccccc;
+    border-bottom-color: #cccccc;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.views-counter {
+    text-align: center;
+    margin-top: 15px;
+    padding: 8px;
+    border: 1px solid #ffffff;
+    background: #000000;
+}
+
+.views-counter span {
+    color: #ffffff;
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+@media (max-width: 600px) {
+    .avatar-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .tabs {
+        flex-direction: column;
+    }
+    
+    .tab-button {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .name-section h1 {
+        font-size: 14px;
+    }
+}

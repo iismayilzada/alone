@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой пиксельный профиль</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="profile-card">
+            <div class="avatar-section">
+                <div class="avatar-frame">
+                    <img src="{{ url_for('static', filename='avatar.png') }}" alt="Мой аватар" class="avatar">
+                </div>
+                <div class="name-section">
+                    <h1 class="pixel-text">ALONE</h1>
+                    <p class="pixel-text status">online</p>
+                </div>
+            </div>
+            
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab-button active pixel-text" onclick="showTab('about')">О СЕБЕ</button>
+                    <button class="tab-button pixel-text" onclick="showTab('skills')">НАВЫКИ</button>
+                    <button class="tab-button pixel-text" onclick="showTab('projects')">ПРОЕКТЫ</button>
+                    <button class="tab-button pixel-text" onclick="showTab('contacts')">КОНТАКТЫ</button>
+                </div>
+                
+                <div class="tab-content">
+                    <div id="about" class="tab-panel active">
+                        <h2 class="pixel-text">👋 ПРИВЕТ!</h2>
+                        <p class="pixel-text">Здесь можешь написать о себе крутую информацию!</p>
+                        <p class="pixel-text">• Возраст: 17 лет</p>
+                        <p class="pixel-text">• Хобби: Программирование, игры</p>
+                        <p class="pixel-text">• Статус: The Last  One</p>
+                    </div>
+                    
+                    <div id="skills" class="tab-panel">
+                        <h2 class="pixel-text">💻 МОИ НАВЫКИ</h2>
+                        <div class="skill-bar">
+                            <span class="pixel-text">Python</span>
+                            <div class="bar"><div class="fill" style="width: 95%"></div></div>
+                        </div>
+                        <div class="skill-bar">
+                            <span class="pixel-text">JavaScript</span>
+                            <div class="bar"><div class="fill" style="width: 89%"></div></div>
+                        </div>
+                        <div class="skill-bar">
+                            <span class="pixel-text">HTML/CSS</span>
+                            <div class="bar"><div class="fill" style="width: 100%"></div></div>
+                        </div>
+                    </div>
+                    
+                    <div id="projects" class="tab-panel">
+                        <h2 class="pixel-text">🚀 ПРОЕКТЫ</h2>
+                        <div class="project-item">
+                            <h3 class="pixel-text">ALIES</h3>
+                            <p class="pixel-text">Дискорд сервер по активу и общению</p>
+                        </div>
+                        <div class="project-item">
+                            <h3 class="pixel-text">mockora</h3>
+                            <p class="pixel-text">В разработке..</p>
+                        </div>
+                    </div>
+                    
+                    <div id="contacts" class="tab-panel">
+                        <h2 class="pixel-text">📬 СВЯЗЬ</h2>
+                        <p class="pixel-text">Discord: alone.life</p>
+                        <p class="pixel-text">Server: <a href="https://discord.gg/asjhjza2h7" target="_blank" class="discord-link">https://discord.gg/asjhjza2h7</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="views-counter">
+                <span class="pixel-text">VIEWS: {{ views_count }}</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showTab(tabName) {
+            // Скрыть все панели
+            const panels = document.querySelectorAll('.tab-panel');
+            panels.forEach(panel => panel.classList.remove('active'));
+            
+            // Убрать активный класс с кнопок
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            
+            // Показать выбранную панель
+            document.getElementById(tabName).classList.add('active');
+            
+            // Активировать кнопку
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
