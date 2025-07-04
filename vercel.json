@@ -3,14 +3,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "alone/main.py",
+      "src": "main.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "alone/main.py"
+      "dest": "main.py"
     }
   ]
 }
