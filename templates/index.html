@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Alone Profile</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
     <div class="container">
         <div class="profile-card">
@@ -20,7 +18,7 @@
                     <p class="pixel-text status">online</p>
                 </div>
             </div>
-
+            
             <div class="tabs-container">
                 <div class="tabs">
                     <button class="tab-button active pixel-text" onclick="showTab('about')">О СЕБЕ</button>
@@ -28,38 +26,32 @@
                     <button class="tab-button pixel-text" onclick="showTab('projects')">WORK</button>
                     <button class="tab-button pixel-text" onclick="showTab('contacts')">КОНТАКТЫ</button>
                 </div>
-
+                
                 <div class="tab-content">
                     <div id="about" class="tab-panel active">
                         <h2 class="pixel-text">👋 ПРИВЕТ!</h2>
                         <p class="pixel-text">Люблю аниме,игры,веселье.</p>
                         <p class="pixel-text">• Возраст: 17 лет</p>
                         <p class="pixel-text">• Хобби: Программирование, игры</p>
-                        <p class="pixel-text">• Статус: The Last One</p>
+                        <p class="pixel-text">• Статус: The Last  One</p>
                     </div>
-
+                    
                     <div id="skills" class="tab-panel">
                         <h2 class="pixel-text">💻 МОИ НАВЫКИ</h2>
                         <div class="skill-bar">
                             <span class="pixel-text">Python</span>
-                            <div class="bar">
-                                <div class="fill" style="width: 95%"></div>
-                            </div>
+                            <div class="bar"><div class="fill" style="width: 95%"></div></div>
                         </div>
                         <div class="skill-bar">
                             <span class="pixel-text">JavaScript</span>
-                            <div class="bar">
-                                <div class="fill" style="width: 89%"></div>
-                            </div>
+                            <div class="bar"><div class="fill" style="width: 89%"></div></div>
                         </div>
                         <div class="skill-bar">
                             <span class="pixel-text">HTML/CSS</span>
-                            <div class="bar">
-                                <div class="fill" style="width: 100%"></div>
-                            </div>
+                            <div class="bar"><div class="fill" style="width: 100%"></div></div>
                         </div>
                     </div>
-
+                    
                     <div id="projects" class="tab-panel">
                         <h2 class="pixel-text">🚀 ПРОЕКТЫ</h2>
                         <div class="project-item">
@@ -71,48 +63,46 @@
                             <p class="pixel-text">В разработке..</p>
                         </div>
                     </div>
-
+                    
                     <div id="contacts" class="tab-panel">
                         <h2 class="pixel-text">📬 СВЯЗЬ</h2>
                         <p class="pixel-text">Discord: alone.life</p>
+                    
+    <div class="theme-toggle-container">
+        <button class="theme-toggle-btn pixel-text" onclick="toggleTheme()" title="Переключить тему">⚫</button>
+    </div>
+    
+    <script>
+        function showTab(tabName) {
+            // Скрыть все панели
+            const panels = document.querySelectorAll('.tab-panel');
+            panels.forEach(panel => panel.classList.remove('active'));
+            
+            // Убрать активный класс с кнопок
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            
+            // Показать выбранную панель
+            document.getElementById(tabName).classList.add('active');
+            
+            // Активировать кнопку
+            event.target.classList.add('active');
+        }
 
-                        <div class="theme-toggle-container">
-                            <button class="theme-toggle-btn pixel-text" onclick="toggleTheme()"
-                                title="Переключить тему">⚫</button>
-                        </div>
-
-                        <script>
-                            function showTab(tabName) {
-                                // Скрыть все панели
-                                const panels = document.querySelectorAll('.tab-panel');
-                                panels.forEach(panel => panel.classList.remove('active'));
-
-                                // Убрать активный класс с кнопок
-                                const buttons = document.querySelectorAll('.tab-button');
-                                buttons.forEach(button => button.classList.remove('active'));
-
-                                // Показать выбранную панель
-                                document.getElementById(tabName).classList.add('active');
-
-                                // Активировать кнопку
-                                event.target.classList.add('active');
-                            }
-
-                            function toggleTheme() {
-                                const body = document.body;
-                                const btn = document.querySelector('.theme-toggle-btn');
-
-                                if (body.classList.contains('dark-blue-theme')) {
-                                    body.classList.remove('dark-blue-theme');
-                                    btn.textContent = '⚫';
-                                    btn.title = 'Переключить на синюю тему';
-                                } else {
-                                    body.classList.add('dark-blue-theme');
-                                    btn.textContent = '🔵';
-                                    btn.title = 'Переключить на обычную тему';
-                                }
-                            }
-                        </script>
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.querySelector('.theme-toggle-btn');
+            
+            if (body.classList.contains('dark-blue-theme')) {
+                body.classList.remove('dark-blue-theme');
+                btn.textContent = '⚫';
+                btn.title = 'Переключить на синюю тему';
+            } else {
+                body.classList.add('dark-blue-theme');
+                btn.textContent = '🔵';
+                btn.title = 'Переключить на обычную тему';
+            }
+        }
+    </script>
 </body>
-
 </html>
