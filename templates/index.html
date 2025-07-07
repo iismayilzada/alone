@@ -14,7 +14,7 @@
                     <img src="{{ url_for('static', filename='avatar.png') }}" alt="Мой аватар" class="avatar">
                 </div>
                 <div class="name-section">
-                    <h1 class="pixel-text">ALONE</h1>
+                    <h1 class="pixel-text">SANO</h1>
                     <p class="pixel-text status">online</p>
                 </div>
             </div>
@@ -80,11 +80,6 @@
             </div>
     </div>
     
-    <!-- Кнопка переключения темы -->
-    <div class="theme-toggle-container">
-        <button class="theme-toggle-btn pixel-text" onclick="toggleTheme()" title="Переключить тему">⚫</button>
-    </div>
-    
     <script>
         function showTab(tabName) {
             // Скрыть все панели
@@ -100,21 +95,6 @@
             
             // Активировать кнопку
             event.target.classList.add('active');
-        }
-
-        function toggleTheme() {
-            const body = document.body;
-            const btn = document.querySelector('.theme-toggle-btn');
-            
-            if (body.classList.contains('dark-blue-theme')) {
-                body.classList.remove('dark-blue-theme');
-                btn.textContent = '⚫';
-                btn.title = 'Переключить на синюю тему';
-            } else {
-                body.classList.add('dark-blue-theme');
-                btn.textContent = '🔵';
-                btn.title = 'Переключить на обычную тему';
-            }
         }
     </script>
 </body>
