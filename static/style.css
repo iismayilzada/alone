@@ -1,10 +1,13 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -71,10 +74,10 @@ body {
 .avatar-frame {
     width: 80px;
     height: 80px;
-    border: 3px solid #4488ff;
+    border: 3px solid #5bc0de;
     position: relative;
-    background: #000033;
-    box-shadow: 0 0 15px rgba(68, 136, 255, 0.5);
+    background: #0a1f2a;
+    box-shadow: 0 0 15px rgba(91, 192, 222, 0.5);
 }
 
 .avatar {
@@ -85,7 +88,7 @@ body {
 }
 
 .name-section h1 {
-    color: #4488ff;
+    color: #5bc0de;
     font-size: 18px;
     margin-bottom: 5px;
     text-shadow: 2px 2px 0px #000000;
@@ -148,8 +151,8 @@ body {
 }
 
 .tab-content {
-    background: #000033;
-    border: 2px solid #4488ff;
+    background: #0a1f2a;
+    border: 2px solid #5bc0de;
     padding: 20px;
     min-height: 300px;
 }
@@ -169,7 +172,7 @@ body {
 }
 
 .tab-panel h2 {
-    color: #4488ff;
+    color: #5bc0de;
     font-size: 14px;
     margin-bottom: 15px;
     text-shadow: 1px 1px 0px #000000;
@@ -186,7 +189,7 @@ body {
 }
 
 .skill-bar span {
-    color: #4488ff;
+    color: #5bc0de;
     font-size: 9px;
     display: block;
     margin-bottom: 5px;
@@ -196,14 +199,14 @@ body {
     width: 100%;
     height: 15px;
     background: #000000;
-    border: 1px solid #4488ff;
+    border: 1px solid #5bc0de;
     position: relative;
     overflow: hidden;
 }
 
 .fill {
     height: 100%;
-    background: linear-gradient(90deg, #4488ff, #2266cc);
+    background: linear-gradient(90deg, #5bc0de, #3a8ba3);
     transition: width 1s ease-in-out;
     position: relative;
 }
@@ -224,23 +227,94 @@ body {
     100% { transform: translateX(100%); }
 }
 
+.projects-container {
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 5px;
+    scroll-behavior: smooth;
+}
+
+.projects-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.projects-container::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, #000033, #001122);
+    border: 2px solid #4488ff;
+    box-shadow: inset 0 0 5px rgba(68, 136, 255, 0.2);
+}
+
+.projects-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #5bc0de, #4488ff);
+    border: 1px solid #ffffff;
+    box-shadow: 
+        0 0 10px rgba(91, 192, 222, 0.5),
+        inset 0 0 5px rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.projects-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #ffffff, #5bc0de);
+    box-shadow: 
+        0 0 15px rgba(255, 255, 255, 0.7),
+        inset 0 0 8px rgba(91, 192, 222, 0.3);
+    border-color: #5bc0de;
+}
+
+.projects-container::-webkit-scrollbar-corner {
+    background: #000033;
+    border: 1px solid #4488ff;
+}
+
 .project-item {
     background: #000000;
-    border: 1px solid #4488ff;
+    border: 1px solid #5bc0de;
     padding: 15px;
     margin-bottom: 15px;
-    border-left: 4px solid #4488ff;
+    border-left: 4px solid #5bc0de;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+    opacity: 1;
+    animation: slideInProject 0.5s ease-out;
+}
+
+.project-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 0 10px rgba(91, 192, 222, 0.3);
+    border-left-width: 6px;
+}
+
+@keyframes slideInProject {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .project-item h3 {
-    color: #4488ff;
+    color: #5bc0de;
     font-size: 11px;
     margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.project-item:hover h3 {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(91, 192, 222, 0.5);
 }
 
 .project-item p {
     color: #cccccc;
     font-size: 9px;
+    transition: color 0.3s ease;
+}
+
+.project-item:hover p {
+    color: #ffffff;
 }
 
 .discord-link {
@@ -278,83 +352,88 @@ body {
         width: 95%;
         padding: 10px;
     }
-    
+
     .profile-card {
         padding: 15px;
     }
-    
+
     .avatar-section {
         flex-direction: column;
         text-align: center;
         gap: 15px;
         margin-bottom: 20px;
     }
-    
+
     .avatar-frame {
         width: 70px;
         height: 70px;
         align-self: center;
     }
-    
+
     .name-section h1 {
         font-size: 16px;
     }
-    
+
     .status {
         font-size: 9px;
     }
-    
+
     .tabs {
         flex-direction: column;
         gap: 8px;
     }
-    
+
     .tab-button {
         width: 100%;
         padding: 12px 15px;
         font-size: 9px;
         text-align: center;
     }
-    
+
     .tab-content {
         padding: 15px;
         min-height: 250px;
     }
-    
+
     .tab-panel h2 {
         font-size: 12px;
         margin-bottom: 12px;
     }
-    
+
     .tab-panel p {
         font-size: 9px;
         margin-bottom: 8px;
         line-height: 1.4;
     }
-    
+
     .skill-bar span {
         font-size: 8px;
     }
-    
+
     .bar {
         height: 12px;
     }
-    
+
+    .projects-container {
+        max-height: 200px;
+        padding-right: 3px;
+    }
+
     .project-item {
         padding: 12px;
         margin-bottom: 12px;
     }
-    
+
     .project-item h3 {
         font-size: 10px;
         margin-bottom: 6px;
     }
-    
+
     .project-item p {
         font-size: 8px;
     }
-    
-    
+
+
 }
 
 @media (max-width: 480px) {
@@ -362,71 +441,76 @@ body {
         width: 98%;
         padding: 5px;
     }
-    
+
     .profile-card {
         padding: 12px;
     }
-    
+
     .avatar-section {
         gap: 10px;
         margin-bottom: 15px;
     }
-    
+
     .avatar-frame {
         width: 60px;
         height: 60px;
     }
-    
+
     .name-section h1 {
         font-size: 14px;
     }
-    
+
     .status {
         font-size: 8px;
     }
-    
+
     .tab-button {
         padding: 10px 12px;
         font-size: 8px;
     }
-    
+
     .tab-content {
         padding: 12px;
         min-height: 200px;
     }
-    
+
     .tab-panel h2 {
         font-size: 11px;
         margin-bottom: 10px;
     }
-    
+
     .tab-panel p {
         font-size: 8px;
         margin-bottom: 6px;
         line-height: 1.3;
     }
-    
+
     .skill-bar span {
         font-size: 7px;
     }
-    
+
     .bar {
         height: 10px;
     }
-    
+
+    .projects-container {
+        max-height: 180px;
+        padding-right: 2px;
+    }
+
     .project-item {
         padding: 10px;
         margin-bottom: 10px;
     }
-    
+
     .project-item h3 {
         font-size: 9px;
         margin-bottom: 5px;
     }
-    
+
     .project-item p {
         font-size: 7px;
     }
-    
-    
+
+
 }
